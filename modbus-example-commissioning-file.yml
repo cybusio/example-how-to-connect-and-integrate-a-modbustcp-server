@@ -3,7 +3,7 @@ description: >
 
   Modbus/TCP Example Commissioning File
   Cybus Learn - How to connect and integrate an Modbus/TCP server
-  https://learn.cybus.io/lessons/XXX/
+  https://learn.cybus.io/lessons/how-to-connect-and-integrate-a-modbustcp-server/
 
 metadata:
 
@@ -34,7 +34,7 @@ resources:
         host: !ref modbusHost
         port: !ref modbusPort
 
-          dayOfMonth:
+  dayOfMonth:
     type: Cybus::Endpoint
     properties:
       protocol: Modbus
@@ -93,7 +93,7 @@ resources:
         interval: 2000
         address: 19050
         dataType: floatBE
-        
+
   mapping:
     type: Cybus::Mapping
     properties:
@@ -101,20 +101,20 @@ resources:
         - subscribe:
             endpoint: !ref dayOfMonth
           publish:
-            topic: '/janitza/status/day'
+            topic: 'janitza/status/day'
         - subscribe:
             endpoint: !ref realPowerL1
           publish:
-            topic: '/janitza/measurement/realpower/1'
+            topic: 'janitza/measurement/realpower/1'
         - subscribe:
             endpoint: !ref realPowerL2
           publish:
-            topic: '/janitza/measurement/realpower/2'
+            topic: 'janitza/measurement/realpower/2'
         - subscribe:
             endpoint: !ref realPowerL3
           publish:
-            topic: '/janitza/measurement/realpower/3'
+            topic: 'janitza/measurement/realpower/3'
         - subscribe:
             endpoint: !ref frequency
           publish:
-            topic: '/janitza/measurement/frequency'
+            topic: 'janitza/measurement/frequency'
