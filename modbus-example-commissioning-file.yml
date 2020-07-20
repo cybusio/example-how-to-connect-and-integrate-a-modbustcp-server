@@ -1,0 +1,120 @@
+---
+description: >
+
+  Modbus/TCP Example Commissioning File
+  Cybus Learn - How to connect and integrate an Modbus/TCP server
+  https://learn.cybus.io/lessons/XXX/
+
+metadata:
+
+  name: Modbus/TCP Example Commissioning File
+  version: 1.0.0
+  icon: https://www.cybus.io/wp-content/uploads/2019/03/Cybus-logo-Claim-lang.svg
+  provider: cybus
+  homepage: https://www.cybus.io
+
+parameters:
+
+  modbusHost:
+    type: string
+    description: Modbus/TCP Host
+    default: 192.168.123.123
+
+  modbusPort:
+    type: integer
+    default: 502
+
+resources:
+
+  modbusConnection:
+    type: Cybus::Connection
+    properties:
+      protocol: Modbus
+      connection:
+        host: !ref modbusHost
+        port: !ref modbusPort
+
+          dayOfMonth:
+    type: Cybus::Endpoint
+    properties:
+      protocol: Modbus
+      connection: !ref modbusConnection
+      subscribe:
+        fc: 3
+        length: 1
+        interval: 2000
+        address: 6
+        dataType: int16BE
+
+  realPowerL1:
+    type: Cybus::Endpoint
+    properties:
+      protocol: Modbus
+      connection: !ref modbusConnection
+      subscribe:
+        fc: 3
+        length: 2
+        interval: 2000
+        address: 19020
+        dataType: floatBE
+        
+  realPowerL2:
+    type: Cybus::Endpoint
+    properties:
+      protocol: Modbus
+      connection: !ref modbusConnection
+      subscribe:
+        fc: 3
+        length: 2
+        interval: 2000
+        address: 19022
+        dataType: floatBE
+
+  realPowerL3:
+    type: Cybus::Endpoint
+    properties:
+      protocol: Modbus
+      connection: !ref modbusConnection
+      subscribe:
+        fc: 3
+        length: 2
+        interval: 2000
+        address: 19024
+        dataType: floatBE
+
+  frequency:
+    type: Cybus::Endpoint
+    properties:
+      protocol: Modbus
+      connection: !ref modbusConnection
+      subscribe:
+        fc: 3
+        length: 2
+        interval: 2000
+        address: 19050
+        dataType: floatBE
+        
+  mapping:
+    type: Cybus::Mapping
+    properties:
+      mappings:
+        - subscribe:
+            endpoint: !ref dayOfMonth
+          publish:
+            topic: '/janitza/status/day'
+        - subscribe:
+            endpoint: !ref realPowerL1
+          publish:
+            topic: '/janitza/measurement/realpower/1'
+        - subscribe:
+            endpoint: !ref realPowerL2
+          publish:
+            topic: '/janitza/measurement/realpower/2'
+        - subscribe:
+            endpoint: !ref realPowerL3
+          publish:
+            topic: '/janitza/measurement/realpower/3'
+        - subscribe:
+            endpoint: !ref frequency
+          publish:
+            topic: '/janitza/measurement/frequency'
