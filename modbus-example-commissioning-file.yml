@@ -1,9 +1,7 @@
 ---
 description: >
 
-  Modbus/TCP Example Commissioning File
-  Cybus Learn - How to connect and integrate an Modbus/TCP server
-  https://learn.cybus.io/lessons/how-to-connect-and-integrate-a-modbustcp-server/
+  Connecting & Integrating a Modbus/TCP Server
 
 metadata:
 
