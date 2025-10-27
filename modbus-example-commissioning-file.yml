@@ -1,13 +1,11 @@
----
 description: >
 
-  Modbus/TCP Example Commissioning File
-  Cybus Learn - How to connect and integrate an Modbus/TCP server
-  https://learn.cybus.io/lessons/how-to-connect-and-integrate-a-modbustcp-server/
+  Connecting & Integrating a Modbus/TCP Server
+  https://docs.cybus.io/guides/machine-connectivity/connecting-and-integrating-a-modbus-tcp-server
 
 metadata:
 
-  name: Modbus/TCP Example Commissioning File
+  name: Modbus/TCP Example Service Commissioning File
   version: 1.0.0
   icon: https://www.cybus.io/wp-content/uploads/2019/03/Cybus-logo-Claim-lang.svg
   provider: cybus

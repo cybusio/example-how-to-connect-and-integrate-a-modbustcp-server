@@ -1,3 +1,4 @@
-# Cybus Learn Lesson Example 
+# Connecting & Integrating a Modbus/TCP Server
 
-This repository contains the example Connectware Commissioning Files for the Cybus Learn Article [How to connect and integrate a Modbus/TCP server](https://learn.cybus.io/lessons/how-to-connect-and-integrate-a-modbustcp-server/).
+This repository provides a service commissioning file that serves as an example for the Connectware documentation. For more information, see [Connecting & Integrating a Modbus/TCP Server
+](https://docs.cybus.io/guides/machine-connectivity/connecting-and-integrating-a-modbus-tcp-server).
